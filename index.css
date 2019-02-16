@@ -54,6 +54,11 @@ img {
   width: 80%;
 }
 
+.only-text {
+  text-align: center;
+  padding: 150px 0;
+}
+
 .footer-link {
   padding-top: 8px;
   padding-left: 10px;

@@ -47,7 +47,14 @@ const getScores = () => {
 
   fetch(`http://data.nba.net/10s/prod/v1/${currentDate}/scoreboard.json`)
     .then(res => res.json())
-    .then(data => data.games.map(game => updateView(game)))
+    // .then(data => data.games.map(game => updateView(game)))
+    .then(data => {
+      if(data.games.length === 0) {
+        return document.querySelector('.pane').innerHTML = '<div class="primary only-text">No games today.</div>'
+      } else {
+        return data.games.map(game => updateView(game))
+      }
+    })
 }
 
 const updateView = (game) => {
@@ -69,7 +76,7 @@ const notStarted = game => {
   content += `
   <div class="game-box">
     <div class="column">
-      <img src="./assets/teams/${game.hTeam.triCode}.png" alt="...">
+      <img src="./assets/teams/${game.hTeam.triCode}.png" alt="${game.hTeam.triCode}">
     </div>
     <div class="column">
       <div class="primary">0</div>
@@ -83,7 +90,7 @@ const notStarted = game => {
       <div class="description">${game.vTeam.triCode}</div>
     </div>
     <div class="column">
-      <img src="./assets/teams/${game.vTeam.triCode}.png" alt="...">
+      <img src="./assets/teams/${game.vTeam.triCode}.png" alt="${game.vTeam.triCode}">
     </div>
   </div>
   `
