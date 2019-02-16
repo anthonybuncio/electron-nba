@@ -106,7 +106,7 @@ const gameOver = game => {
       <div class="description">${game.hTeam.triCode}</div>
     </div>
     <div class="column">
-      <div class="primary">FINAL</div>
+      <div class="description">FINAL</div>
     </div>
     <div class="column">
       <div class="primary">${game.vTeam.score}</div>
