@@ -13,11 +13,17 @@ document.addEventListener('click', (event) => {
     getScores()
   } else if (event.target.classList.contains('js-quit-action')) {
     window.close()
+  } else if (event.target.classList.contains('js-previous-scores')) {
+    console.log('show previous day')
+  } else if (event.target.classList.contains('js-next-scores')) {
+    console.log('show next day')
+  } else if (event.target.classList.contains('js-dark-mode')) {
+    console.log('dark mode')
   }
 })
 
 const getScores = () => {
-  fetch('http://data.nba.net/10s/prod/v1/20190222/scoreboard.json')
+  fetch('http://data.nba.net/10s/prod/v1/20190213/scoreboard.json')
     .then(res => res.json())
     .then(data => data.games.map(game => updateView(game)))
 }
