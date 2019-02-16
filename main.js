@@ -55,6 +55,7 @@ const createWindow = () => {
     show: false,
     frame: false,
     fullscreenable: false,
+    // CHANGE TO FALSE
     resizable: false,
     transparent: true,
     webPreferences: {
