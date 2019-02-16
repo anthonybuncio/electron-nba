@@ -2,7 +2,7 @@ const {shell} = require('electron')
 const moment = require('moment');
 
 let content = '';
-let currentDate = moment().format('YYYYMMDD');
+let days = 0;
 
 document.addEventListener('click', (event) => {
   if (event.target.href) {
@@ -14,23 +14,38 @@ document.addEventListener('click', (event) => {
   } else if (event.target.classList.contains('js-quit-action')) {
     window.close()
   } else if (event.target.classList.contains('js-previous-scores')) {
-    console.log('show previous day')
+    days += -1
+    getScores()
   } else if (event.target.classList.contains('js-next-scores')) {
-    console.log('show next day')
+    days += 1
+    getScores()
   } else if (event.target.classList.contains('js-dark-mode')) {
     console.log('dark mode')
   }
 })
 
 const getScores = () => {
-  fetch('http://data.nba.net/10s/prod/v1/20190213/scoreboard.json')
+  let currentDate;
+  content = ''
+
+  if(days > 0) {
+    currentDate = moment().add(days, 'days').format('YYYYMMDD')
+  } else if (days < 0) {
+    currentDate = moment().subtract(Math.abs(days), 'days').format('YYYYMMDD')
+  } else {
+    currentDate = moment().format('YYYYMMDD')
+  }
+
+  document.querySelector('.title').innerHTML = moment(currentDate).format('dddd, MMMM Do')
+
+  fetch(`http://data.nba.net/10s/prod/v1/${currentDate}/scoreboard.json`)
     .then(res => res.json())
     .then(data => data.games.map(game => updateView(game)))
 }
 
 const updateView = (game) => {
   // If the game is over
-  if(game.endTimeUTC || currentDate > game.startDateEastern) {
+  if(game.endTimeUTC || moment().format('YYYYMMDD') > game.startDateEastern) {
     return gameOver(game)
   } 
   // If the game is in progress
@@ -38,7 +53,7 @@ const updateView = (game) => {
     return inProgress(game)
   }
   // If the game hasn't started
-  else if(moment().isBefore(game.startTimeUTC) || currentDate < startDateEastern) {
+  else if(moment().isBefore(game.startTimeUTC) || moment().format('YYYYMMDD') < startDateEastern) {
     return notStarted(game)
   }
 }
