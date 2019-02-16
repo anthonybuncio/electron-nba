@@ -5,18 +5,86 @@
     <title>Hello World!</title>
     <link rel="stylesheet" href="./vendor/css/photon.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="./index.css" media="screen" charset="utf-8">
-    <script charset="utf-8">require('./index')</script>
+    <script charset="utf-8">require('./renderer.js')</script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <div class="header-arrow"></div>
+    <div class="window">
+      <header class="toolbar toolbar-header">
+        <h1 class="title">Today's Games</h1>
+      </header>
 
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
+      <div class="window-content">
+        <div class="pane">
+
+          <div class="loading">Loading...</div>
+
+          <div class="game-box">
+            <div class="column">
+              <img src="./assets/teams/Brooklyn.png" alt="...">
+            </div>
+            <div class="column">
+              <div class="primary">92</div>
+              <div class="description">Nets</div>
+            </div>
+            <div class="column">
+              <div class="primary">6:32</div>
+              <div class="description">Q4</div>
+            </div>
+            <div class="column">
+              <div class="primary">92</div>
+              <div class="description">Rockets</div>
+            </div>
+            <div class="column">
+              <img src="./assets/teams/Houston.png" alt="...">
+            </div>
+          </div>
+
+          <div class="game-box">
+            <div class="column">
+              <img src="./assets/teams/Brooklyn.png" alt="...">
+            </div>
+            <div class="column">
+              <div class="primary">92</div>
+              <div class="description">Nets</div>
+            </div>
+            <div class="column">
+              <div class="primary">6:32</div>
+              <div class="description">Q4</div>
+            </div>
+            <div class="column">
+              <div class="primary">92</div>
+              <div class="description">Rockets</div>
+            </div>
+            <div class="column">
+              <img src="./assets/teams/Houston.png" alt="...">
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <footer class="toolbar toolbar-footer">
+
+        <div class="footer-link">
+          Checkout my <a href="https://github.com/AnthonyBuncio">Github</a>
+        </div>
+
+        <div class="toolbar-actions pull-right">
+          <div class="btn-group">
+            <button class="btn btn-default js-refresh-action">
+              <span class="icon icon-arrows-ccw js-refresh-action" title="Refresh"></span>
+            </button>
+
+            <button class="btn btn-default js-quit-action">
+              <span class="icon icon-cancel js-quit-action" title="Quit"></span>
+            </button>
+          </div>
+        </div>
+
+      </footer>
+    </div>
   </body>
 </html>

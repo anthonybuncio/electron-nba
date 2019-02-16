@@ -1,12 +1,13 @@
 const {app, BrowserWindow, ipcMain, Tray} = require('electron')
 const path = require('path')
+require('electron-reload')(__dirname);
 
 const assetsDirectory = path.join(__dirname, 'assets')
 
 let tray = undefined
 let window = undefined
 
-// Don't show the app in the doc
+// Don't show the app in the dock
 app.dock.hide()
 
 app.on('ready', () => {
@@ -20,7 +21,8 @@ app.on('window-all-closed', () => {
 })
 
 const createTray = () => {
-  tray = new Tray(path.join(assetsDirectory, 'sunTemplate.png'))
+  tray = new Tray(path.join(assetsDirectory, 'Ball.png'))
+
   tray.on('right-click', toggleWindow)
   tray.on('double-click', toggleWindow)
   tray.on('click', function (event) {
@@ -85,7 +87,3 @@ const showWindow = () => {
   window.show()
   window.focus()
 }
-
-ipcMain.on('show-window', () => {
-  showWindow()
-})
