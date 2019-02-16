@@ -1,7 +1,8 @@
 const {shell} = require('electron')
+const moment = require('moment');
 
 let content = '';
-let currentDate = null;
+let currentDate = moment().format('YYYYMMDD');
 
 document.addEventListener('click', (event) => {
   if (event.target.href) {
@@ -16,23 +17,6 @@ document.addEventListener('click', (event) => {
   }
 })
 
-const formatDate = () => {
-  var d = new Date(),
-  month = '' + (d.getMonth() + 1),
-  day = '' + d.getDate(),
-  year = d.getFullYear();
-
-  if (month.length < 2) month = '0' + month;
-  if (day.length < 2) day = '0' + day;
-
-  currentDate = [year, month, day].join('');
-}
-
-// Make request to nba api
-  // loop through each game and render a block of code
-    // if game hasnt started, show start time
-    // if game has started, show scores and time left
-    // if game has ended, show "final" and scores
 const getScores = () => {
   fetch('http://data.nba.net/10s/prod/v1/20190213/scoreboard.json')
     .then(res => res.json())
@@ -40,9 +24,9 @@ const getScores = () => {
 }
 
 const updateView = (game) => {
-  console.log(game)
+  console.log(game.endTimeUTC)
   // If the game is over
-  if(currentDate > game.startDateEastern) {
+  if(game.endTimeUTC) {
     return gameOver(game)
   } 
   // If the game is in progress
@@ -75,7 +59,6 @@ const gameOver = (game) => {
 }
 
 const updateScores = () => {
-  formatDate()
   getScores()
 }
 

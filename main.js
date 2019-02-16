@@ -56,7 +56,7 @@ const createWindow = () => {
     frame: false,
     fullscreenable: false,
     // CHANGE TO FALSE
-    resizable: false,
+    resizable: true,
     transparent: true,
     webPreferences: {
       // Prevents renderer process code from not running when window is
