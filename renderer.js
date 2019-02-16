@@ -20,7 +20,14 @@ document.addEventListener('click', (event) => {
     days += 1
     getScores()
   } else if (event.target.classList.contains('js-dark-mode')) {
-    console.log('dark mode')
+    const body = document.querySelector('.window')
+    if (body.classList.contains('light')) {
+      body.classList.remove('light');
+      body.classList.add('dark');
+    } else {
+      body.classList.remove('dark');
+      body.classList.add('light');
+    }
   }
 })
 
