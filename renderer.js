@@ -79,14 +79,12 @@ const notStarted = game => {
       <img src="./assets/teams/${game.hTeam.triCode}.png" alt="${game.hTeam.triCode}">
     </div>
     <div class="column">
-      <div class="primary">0</div>
       <div class="description">${game.hTeam.triCode}</div>
     </div>
     <div class="column">
       <div class="description">${game.startTimeEastern}</div>
     </div>
     <div class="column">
-      <div class="primary">0</div>
       <div class="description">${game.vTeam.triCode}</div>
     </div>
     <div class="column">
