@@ -47,7 +47,6 @@ const getScores = () => {
 
   fetch(`http://data.nba.net/10s/prod/v1/${currentDate}/scoreboard.json`)
     .then(res => res.json())
-    // .then(data => data.games.map(game => updateView(game)))
     .then(data => {
       if(data.games.length === 0) {
         return document.querySelector('.pane').innerHTML = '<div class="primary only-text">No games today.</div>'
@@ -157,5 +156,5 @@ const gameOver = game => {
 // const thirty = 30 * 1000
 // setInterval(getScores, thirty)
 
-// // Update initial scores when loaded
+// Update initial scores when loaded
 document.addEventListener('DOMContentLoaded', getScores)
