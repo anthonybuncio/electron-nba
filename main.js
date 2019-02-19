@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain, Tray} = require('electron')
+const {app, BrowserWindow, Tray} = require('electron')
 const path = require('path')
 require('electron-reload')(__dirname);
 
