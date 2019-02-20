@@ -152,9 +152,9 @@ const gameOver = game => {
   document.querySelector('.pane').innerHTML = content
 }
 
-// // Refresh scores every 30 seconds
-// const thirty = 30 * 1000
-// setInterval(getScores, thirty)
+// Refresh scores every 30 seconds
+const refresh = 30 * 1000
+setInterval(getScores, refresh)
 
 // Update initial scores when loaded
 document.addEventListener('DOMContentLoaded', getScores)
