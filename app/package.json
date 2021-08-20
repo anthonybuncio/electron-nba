@@ -1,0 +1,21 @@
+{
+  "name": "electron-quick-start",
+  "productName": "4thQuarter",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^4.0.2",
+    "electron-packager": "^15.1.0"
+  },
+  "dependencies": {
+    "electron-reload": "^1.5.0",
+    "moment": "^2.24.0"
+  }
+}

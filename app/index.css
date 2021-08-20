@@ -1,0 +1,111 @@
+/* Variables */
+:root {
+  --window-border-radius: 6px;
+  --font-size: 14px;
+  /* light mode */
+  --background-color: #f5f5f4;
+  --secondary-background-color: #D8D8D8;
+  --text-color: #333;
+  --secondary-text-color: #666;
+  /* dark mode */
+  --d-background-color: #303030;
+  --d-secondary-background-color: #505050;
+  --d-text-color: #E0E0E0;
+  --d-secondary-text-color: #F8F8F8;
+  --d-menu-color: #404040;
+}
+/* add toolbar background, button, text color */
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: none;
+  padding: 5px 0;
+}
+
+.window {
+  border-top-left-radius: var(--window-border-radius);
+  border-top-right-radius: var(--window-border-radius);
+}
+
+.game-box {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.column {
+  width: 20%;
+  text-align: center;
+}
+
+.primary {
+  font-size: calc(var(--font-size) + 6px);
+  font-weight: 300;
+}
+
+.description {
+  text-transform: uppercase;
+  font-size: calc(var(--font-size) - 3px);
+  font-weight: 400;
+}
+
+img {
+  width: 80%;
+}
+
+.only-text {
+  text-align: center;
+  padding: 150px 0;
+}
+
+.footer-link {
+  padding-top: 8px;
+  padding-left: 10px;
+  font-size: calc(var(--font-size) - 4px);
+  float: left;
+}
+
+/* LIGHT MODE */
+.light .window-content {
+  background: var(--background-color);
+}
+
+.light .game-box:nth-child(odd) {
+  background: var(--secondary-background-color);
+}
+
+.light .primary,
+.light .footer-link a {
+  color: var(--text-color);
+}
+
+.light .description {
+  color: var(--secondary-text-color);
+}
+
+/* DARK MODE */
+.dark .window-content {
+  background: var(--d-background-color);
+}
+
+.dark .game-box:nth-child(odd) {
+  background: var(--d-secondary-background-color);
+}
+
+.dark .primary,
+.dark .footer-link a {
+  color: var(--d-text-color);
+}
+
+.dark .description {
+  color: var(--d-secondary-text-color);
+}
+
+.dark .toolbar,
+.dark .toolbar button,
+.dark .toolbar span,
+.dark .title {
+  background: var(--d-menu-color);
+  color: var(--d-text-color);
+}
