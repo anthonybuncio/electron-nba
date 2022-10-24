@@ -1,15 +1,11 @@
 <div align="center">
   <img src="https://emojis.slackmojis.com/emojis/images/1643516237/22652/basketball.png" alt="Responsively Logo" width="50">
   
-  <h1>Electron App</h1>
-  <strong>A must-have devtool for web developers for quicker responsive web development. 🚀</strong>
-  <h6>Save time by becoming 5x faster!</h6>
+  <h1>Electron-NBA</h1>
+  <strong>An open-source, live-updating NBA scoring app. 🚀</strong>
+  <h6>Keep the scores at your fingertips!</h6>
 </div>
 <br>
-
-# [electron-nba](https://www.anthony.wiki/apps/run-it-up)
-
-> An open-source, **live-updating** NBA scoring app
 
 ## Features:
 
