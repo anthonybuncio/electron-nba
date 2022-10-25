@@ -61,7 +61,8 @@ const createWindow = () => {
       // Prevents renderer process code from not running when window is
       // hidden
       backgroundThrottling: false,
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false
     }
   })
   window.loadURL(`file://${path.join(__dirname, 'index.html')}`)

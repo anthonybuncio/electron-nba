@@ -1,5 +1,9 @@
 const {shell} = require('electron')
 const moment = require('moment');
+const dayjs = require('dayjs');
+const data = require('./teams.json')
+
+console.log(data)
 
 let content = '';
 let days = 0;
@@ -31,7 +35,7 @@ document.addEventListener('click', (event) => {
   }
 })
 
-const getScores = () => {
+const getScores = async () => {
   let currentDate;
   content = ''
 
@@ -45,7 +49,7 @@ const getScores = () => {
 
   document.querySelector('.title').innerHTML = moment(currentDate).format('dddd, MMMM Do')
 
-  fetch(`http://data.nba.net/10s/prod/v1/${currentDate}/scoreboard.json`)
+  await fetch(`http://data.nba.net/10s/prod/v1/${currentDate}/scoreboard.json`)
     .then(res => res.json())
     .then(data => {
       if(data.games.length === 0) {
@@ -66,9 +70,10 @@ const updateView = (game) => {
     return inProgress(game)
   }
   // If the game hasn't started
-  else if(moment().isBefore(game.startTimeUTC) || moment().format('YYYYMMDD') < startDateEastern) {
+  else if(moment().isBefore(game.startTimeUTC) || moment().format('YYYYMMDD') < game.startDateEastern) {
     return notStarted(game)
   }
+
 }
 
 const notStarted = game => {
@@ -128,6 +133,7 @@ const inProgress = game => {
 }
 
 const gameOver = game => {
+  console.log(game)
   content += `
   <div class="game-box">
     <div class="column">
